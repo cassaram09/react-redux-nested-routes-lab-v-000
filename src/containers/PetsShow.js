@@ -13,9 +13,8 @@ const PetsShow = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    pet: {}
-  };
+  const pet = state.pets.find( pet => pet.id === ownProps.routeParams.id )
+  return pet ? {pet: pet} : {pet: {} }
 };
 
 export default connect(mapStateToProps)(PetsShow);
